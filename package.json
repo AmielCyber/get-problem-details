@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "files": ["dist", "LICENSE", "README.md", "package.json"],
-  "description": "Transforms an unsuccessful response into a problem details object for TypeScript. Works with ASP.NET's (.NET 7) default problem details configuration.",
+  "description": "Transforms an unsuccessful response into a problem details object for TypeScript. Works with ASP.NET's (.NET 7) default problem details configuration or any API that uses RFC 7807 problem details.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -11,10 +11,16 @@
     "test": "jest"
   },
   "keywords": [
+    "RFC 7807",
     "problem-details",
+    "problem details",
     "typescript",
+    "javascript",
+    "React",
+    "Angular",
     "ASP.NET",
-    "response"
+    "response",
+    "fetch"
   ],
   "author": "Amiel Nava",
   "license": "MIT",
