@@ -9,6 +9,7 @@ export interface ProblemDetails {
     status: number;
     detail?: string;
     traceId?: string;
+    instance?: string;
     errors?: Record<string, string[]>
 }
 
@@ -84,6 +85,19 @@ function getTraceId(result: unknown): string | undefined {
 }
 
 /**
+ * Gets the instance property string of a fetch response if there is one.
+ * @param result from a fetch response.
+ * @return string of problem detail's instance information, else undefined if response/problem-details contains no property.
+ */
+function getInstance(result: unknown): string | undefined {
+    if (!!result && typeof result === "object" && "instance" in result && typeof result.instance === "string") {
+        return result.instance;
+    }
+    return undefined;
+}
+
+// TODO: Implement custom problem details extensions
+/**
  * Gets the errors property object of a fetch response if there is one.
  * @param result from a fetch response.
  * @return record object of the problem detail's errors record, else undefined if response/problem-details contains no property.
@@ -115,6 +129,7 @@ function getProblemDetails(responseResult: unknown, errorMessage?: string): Prob
         status: getStatus(responseResult),
         detail: getDetail(responseResult),
         traceId: getTraceId(responseResult),
+        instance: getInstance(responseResult),
         errors: getErrors(responseResult)
     };
 }

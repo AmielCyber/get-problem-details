@@ -8,6 +8,7 @@ export interface ProblemDetails {
     status: number;
     detail?: string;
     traceId?: string;
+    instance?: string;
     errors?: Record<string, string[]>;
 }
 /**

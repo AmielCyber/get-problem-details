@@ -61,6 +61,15 @@ test("object with traceId should return default title, default status, and its t
     expectProblemDetailsContainDefaultObjectProperties(result, "traceId");
 })
 
+test("object with instance should return default title, default status, and its instance value", () => {
+    const object = {
+        instance: "Instance information"
+    }
+    const result = getProblemDetails(object);
+    expect(result.instance).toBe(object.instance);
+    expectProblemDetailsContainDefaultObjectProperties(result, "instance");
+})
+
 test("object with errors should return default title, default status, and its errors values", () => {
     const object = {
         errors: {
@@ -105,6 +114,11 @@ function expectProblemDetailsContainDefaultObjectProperties(result: ProblemDetai
                     expect(result.traceId).toBe(undefined);
                 }
                 break;
+            case "instance":
+                if(skipProperty !== property){
+                    expect(result.instance).toBe(undefined);
+                }
+                break;
             case "errors":
                 if(skipProperty !== property){
                     expect(result.errors).toBe(undefined);
@@ -120,6 +134,7 @@ function expectDefaultProblemDetails(result: ProblemDetails) {
     expect(result.type).toBe(undefined);
     expect(result.detail).toBe(undefined);
     expect(result.traceId).toBe(undefined);
+    expect(result.instance).toBe(undefined);
     expect(result.errors).toBe(undefined);
 }
 
