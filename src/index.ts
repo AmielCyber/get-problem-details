@@ -18,7 +18,7 @@ export interface ProblemDetails {
  * @param result from a fetch response.
  * @return string of problem detail's type information, else undefined if response/problem-details contains no property.
  */
-function getType(result: unknown): string | undefined{
+function getType(result: unknown): string | undefined {
     if (!!result && typeof result === "object" && "type" in result && typeof result.type === "string") {
         return result.type;
     }
@@ -33,7 +33,7 @@ function getType(result: unknown): string | undefined{
  * @return string of problem detail's title information, else "Server Error" if response/problem-details/errorMessage contains no property.
  */
 function getTitle(result: unknown, errorMessage = "Server Error"): string {
-    if(!!result && typeof result === "object"){
+    if (!!result && typeof result === "object") {
         if ("title" in result && typeof result.title === "string") {
             return result.title;
         }

@@ -6,18 +6,22 @@ Response objects may lack problem details properties or not have any at all, in 
 details object with `status: 500` and `title: "Server Error"`.
 
 ## Usage
-After parsing a response, call the `getProblemDetails` function and pass the parsed response to 
-getProblemDetails to obtain a ProblemDetails object. You can then log this object or display the failed response to the user.
+
+### Install npm package
+```bash
+npm i problem-details-mapper
+```
 
 ### Import getProblemDetails and ProblemDetails type
-
 ```typescript
 import getProblemDetails from "problem-details-mapper";
 import type {ProblemDetails} from "problem-details-mapper";
 ```
 
-## Examples
-### Extracting as many Problem Details properties from a failed response
+### Examples
+#### Extracting as many Problem Details properties from a failed response
+After parsing a response, call the `getProblemDetails` function and pass the parsed response to
+getProblemDetails to obtain a ProblemDetails object. You can then log this object or display the failed response to the user.
 
 ```typescript
 if (!response.ok) {
@@ -30,7 +34,7 @@ if (!response.ok) {
     problemToast(problemDetails);   // Custom toast not provided.
 }
 ```
-### Getting a Problem Details object from a produced error while fetching
+#### Getting a Problem Details object from a produced error while fetching
 
 ```typescript
 let response: Response | undefined;

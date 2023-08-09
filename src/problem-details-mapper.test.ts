@@ -86,41 +86,41 @@ test("object with errors should return default title, default status, and its er
     expectProblemDetailsContainDefaultObjectProperties(result, "errors");
 })
 
-function expectProblemDetailsContainDefaultObjectProperties(result: ProblemDetails, skipProperty: string){
-    for(const property in result){
-        switch (property){
+function expectProblemDetailsContainDefaultObjectProperties(result: ProblemDetails, skipProperty: string) {
+    for (const property in result) {
+        switch (property) {
             case "type":
-                if(skipProperty !== property){
+                if (skipProperty !== property) {
                     expect(result.type).toBe(undefined);
                 }
                 break;
             case "title":
-                if(skipProperty !== property){
+                if (skipProperty !== property) {
                     expect(result.title).toBe(defaultTitle);
                 }
                 break;
             case "status":
-                if(skipProperty !== property){
+                if (skipProperty !== property) {
                     expect(result.status).toBe(defaultStatusCode);
                 }
                 break;
             case "detail":
-                if(skipProperty !== property){
+                if (skipProperty !== property) {
                     expect(result.detail).toBe(undefined);
                 }
                 break;
             case "traceId":
-                if(skipProperty !== property){
+                if (skipProperty !== property) {
                     expect(result.traceId).toBe(undefined);
                 }
                 break;
             case "instance":
-                if(skipProperty !== property){
+                if (skipProperty !== property) {
                     expect(result.instance).toBe(undefined);
                 }
                 break;
             case "errors":
-                if(skipProperty !== property){
+                if (skipProperty !== property) {
                     expect(result.errors).toBe(undefined);
                 }
                 break;
@@ -128,6 +128,7 @@ function expectProblemDetailsContainDefaultObjectProperties(result: ProblemDetai
     }
 
 }
+
 function expectDefaultProblemDetails(result: ProblemDetails) {
     expect(result.status).toBe(defaultStatusCode);
     expect(result.title).toBe(defaultTitle);
