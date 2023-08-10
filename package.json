@@ -1,7 +1,7 @@
 {
   "name": "problem-details-mapper",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.01",
   "homepage": "https://github.com/AmielCyber/problem-details-mapper",
   "files": ["dist", "LICENSE", "README.md", "package.json"],
   "description": "Transforms an unsuccessful response into a problem details object for TypeScript. Works with ASP.NET's (.NET 7) default problem details configuration or any API that uses RFC 7807 problem details.",
