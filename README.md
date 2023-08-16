@@ -1,40 +1,43 @@
-# Problem Details Mapper
-This lightweight library maps a JavaScript/TypeScript fetch response to a problem details object if the API employs the 
-RFC 7807 standard for unsuccessful responses.
+# Extract Problem Details
+A lightweight library that extracts the problem details (RFC 7807) object from an unsuccessful response. Easily maps 
+a typed Problem Details object to be used for handling unsuccessful responses from an API that implements the Problem
+Details web specification [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807).
 
-Response objects may lack problem details properties or not have any at all, in which case they default to a problem 
+Response objects may lack problem details properties or have none at all, in which case they default to a problem 
 details object with `status: 500` and `title: "Server Error"`.
 
 ## Usage
 
 ### Install npm package
 ```bash
-npm i problem-details-mapper
+npm i extract-problem-details
 ```
 
 ### Import getProblemDetails and ProblemDetails type
 ```typescript
-import getProblemDetails from "problem-details-mapper";
-import type {ProblemDetails} from "problem-details-mapper";
+import getProblemDetails from "extract-problem-details";
+import type {ProblemDetails} from "extract-problem-details";
 ```
 
 ### Examples
 #### Extracting as many Problem Details properties from a failed response
-After parsing a response, call the `getProblemDetails` function and pass the parsed response to
+After parsing a response, call the `getProblemDetails` function and pass the *parsed* response to
 getProblemDetails to obtain a ProblemDetails object. You can then log this object or display the failed response to the user.
 
 ```typescript
 if (!response.ok) {
     const responseResult = await response.json() as unknown;
+    
     /************************************************************************/
     const problemDetails: ProblemDetails = getProblemDetails(responseResult);
     /************************************************************************/
-    // Do something with your problem details object such as making a toast 
-    // for your users to display a failed response.
+    
+    // Do something with your problem details object, 
+    // such as making a toast for your users to display a failed response.
     problemToast(problemDetails);   // Custom toast not provided.
 }
 ```
-#### Getting a Problem Details object from a produced error while fetching
+#### Getting a Problem Details object from a produced exception while fetching
 
 ```typescript
 let response: Response | undefined;
