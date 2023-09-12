@@ -1,8 +1,8 @@
 export default getProblemDetails;
 /**
  * Gets the type property string of a fetch response if there is one.
- * @param result from a fetch response.
- * @return string of problem detail's type information, else undefined if response/problem-details contains no property.
+ * @param result from a response.
+ * @return problem detail's type string information, else undefined if response/problem-details contains no property.
  */
 function getType(result) {
     if (!!result && typeof result === "object" && "type" in result && typeof result.type === "string") {
@@ -11,11 +11,11 @@ function getType(result) {
     return undefined;
 }
 /**
- * Gets the title property string of a fetch response if there is one. Can be passed an error message if
- * an error occurred while fetching a response.
- * @param result from a fetch response.
+ * Gets the title property string of a fetch response if there is one. Can be passed with an error message if
+ * an error occurred while fetching.
+ * @param result from a response.
  * @param errorMessage If an error message occurred while fetching. Defaults to "Server Error" if no error message is passed.
- * @return string of problem detail's title information, else "Server Error" if response/problem-details/errorMessage contains no property.
+ * @return string of problem detail's title information, defaults to "Server Error" if response/problem-details/errorMessage contains no property.
  */
 function getTitle(result, errorMessage = "Server Error") {
     if (!!result && typeof result === "object") {
@@ -32,8 +32,8 @@ function getTitle(result, errorMessage = "Server Error") {
 }
 /**
  * Gets the status property number of a fetch response if there is one.
- * @param result from a fetch response.
- * @return number of problem detail's status code, else returns a default of 500 status code if no status code
+ * @param result from a response.
+ * @return number of problem detail's status code , else returns a default of 500 status code if no status code
  * was found.
  */
 function getStatus(result) {
@@ -44,8 +44,8 @@ function getStatus(result) {
     return 500;
 }
 /**
- * Gets the detail property string of a fetch response if there is one.
- * @param result from a fetch response.
+ * Gets the detail property string of a response, if there is one.
+ * @param result from a response.
  * @return string of problem detail's detail information, else undefined if response/problem-details contains no property.
  */
 function getDetail(result) {
@@ -56,7 +56,7 @@ function getDetail(result) {
 }
 /**
  * Gets the traceId property string of a fetch response if there is one.
- * @param result from a fetch response.
+ * @param result from a response.
  * @return string of problem detail's traceId information, else undefined if response/problem-details contains no property.
  */
 function getTraceId(result) {
@@ -67,7 +67,7 @@ function getTraceId(result) {
 }
 /**
  * Gets the instance property string of a fetch response if there is one.
- * @param result from a fetch response.
+ * @param result from a response.
  * @return string of problem detail's instance information, else undefined if response/problem-details contains no property.
  */
 function getInstance(result) {
@@ -93,12 +93,12 @@ function getErrors(result) {
     return undefined;
 }
 /**
- * Gets a ProblemDetails object from an unsuccessful response from a fetch. Attempts to extract the properties
- * of a problem details response result if there is one.
+ * Gets a ProblemDetails object from an unsuccessful response from a fetch. Attempts to extract the
+ * properties of a problem details response result if there is one.
  * @param responseResult the response object from an unsuccessful. Must be json parse first before calling this function.
  * @param errorMessage optional error message string to pass to be set in title if no title is found in the response result.
- * @return ProblemDetails object containing the problem details property from a response, or the defaults status=500,
- * title = "Server Error", if no problem details properties were found.
+ * @return ProblemDetails object containing the problem details property from a response, or the defaults: {status=500, title = "Server Error"},
+ * if no problem details properties were found.
  */
 function getProblemDetails(responseResult, errorMessage) {
     return {

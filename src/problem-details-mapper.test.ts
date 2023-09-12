@@ -1,4 +1,4 @@
-import getProblemDetails, {ProblemDetails} from "./index";
+import getProblemDetails, { ProblemDetails } from "./index";
 
 const defaultStatusCode = 500;
 const defaultTitle = "Server Error";

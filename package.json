@@ -1,41 +1,43 @@
 {
-  "name": "extract-problem-details",
-  "type": "module",
-  "version": "1.0.02",
-  "homepage": "https://github.com/AmielCyber/extract-problem-details",
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md",
-    "package.json"
-  ],
-  "description": "Extracts the problem details object response from an unsuccessful fetch response.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "test": "jest"
-  },
-  "keywords": [
-    "RFC 7807",
-    "RFC-7807",
-    "problem-details",
-    "problem details",
-    "client problem details",
-    "typescript",
-    "javascript",
-    "React",
-    "Angular",
-    "ASP.NET",
-    "response",
-    "fetch"
-  ],
-  "author": "Amiel Nava",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/jest": "^29.5.3",
-    "jest": "^29.6.2",
-    "ts-jest": "^29.1.1",
-    "typescript": "^5.1.6"
-  }
+    "name": "get-problem-details",
+    "type": "module",
+    "version": "1.0.0",
+    "homepage": "https://github.com/AmielCyber/get-problem-details",
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md",
+        "package.json"
+    ],
+    "description": "Extracts the Problem Details (RFC 7807) object from an unsuccessful server response.",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "test": "jest"
+    },
+    "keywords": [
+        "RFC 7807",
+        "RFC-7807",
+        "problem-details",
+        "problem details",
+        "client problem details",
+        "TypeScript",
+        "JavaScript",
+        "React",
+        "Angular",
+        "ASP.NET",
+        "fetch",
+        "server response",
+        "server error",
+        "fetch"
+    ],
+    "author": "Amiel Nava",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/jest": "^29.5.3",
+        "jest": "^29.6.2",
+        "ts-jest": "^29.1.1",
+        "typescript": "^5.1.6"
+    }
 }
