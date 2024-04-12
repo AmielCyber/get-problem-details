@@ -1,7 +1,7 @@
 {
     "name": "get-problem-details",
     "type": "module",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "homepage": "https://github.com/AmielCyber/get-problem-details",
     "files": [
         "dist",
@@ -9,7 +9,7 @@
         "README.md",
         "package.json"
     ],
-    "description": "Extracts the Problem Details (RFC 7807) object from an unsuccessful server response. Eases the extraction of the Problem Details from a non 200 response in a client application.",
+    "description": "Extracts the Problem Details (RFC 7807) object from an unsuccessful server response (fetch/HttpErrorResponse). Eases the extraction of the Problem Details from a non 200 response in a client application.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
@@ -17,17 +17,15 @@
         "test": "jest"
     },
     "keywords": [
-        "RFC 7807",
         "RFC-7807",
         "problem-details",
-        "problem details",
-        "client problem details",
         "TypeScript",
         "JavaScript",
         "React",
         "Angular",
         "ASP.NET",
         "fetch",
+        "HttpClient",
         "server response",
         "server error",
         "fetch"

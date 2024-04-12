@@ -1,27 +1,27 @@
-import getProblemDetails, { ProblemDetails } from "./index";
+import { ProblemDetails } from "./index";
 
 const defaultStatusCode = 500;
 const defaultTitle = "Server Error";
 
 test("null object should return default status code and title", () => {
-    const result = getProblemDetails(null);
+    const result = new ProblemDetails(null);
     expectDefaultProblemDetails(result);
 })
 
 test("undefined should return default status code and title", () => {
-    const result = getProblemDetails(undefined);
+    const result = new ProblemDetails(undefined);
     expectDefaultProblemDetails(result);
 })
 
 test("empty object should return default status code and title", () => {
-    const result = getProblemDetails({});
+    const result = new ProblemDetails({});
     expectDefaultProblemDetails(result);
 })
 test("object with type should return default status code, default title, and its type value", () => {
     const object = {
         type: "Type information."
     }
-    const result = getProblemDetails(object);
+    const result = new ProblemDetails(object);
     expect(result.type).toBe(object.type);
     expectProblemDetailsContainDefaultObjectProperties(result, "type");
 })
@@ -29,7 +29,7 @@ test("object with title should return default status code and its title value", 
     const object = {
         title: "Title information."
     }
-    const result = getProblemDetails(object);
+    const result = new ProblemDetails(object);
     expect(result.title).toBe(object.title);
     expectProblemDetailsContainDefaultObjectProperties(result, "title");
 })
@@ -38,7 +38,7 @@ test("object with status should return default title and its status value", () =
     const object = {
         status: 400,
     }
-    const result = getProblemDetails(object);
+    const result = new ProblemDetails(object);
     expect(result.status).toBe(object.status);
     expectProblemDetailsContainDefaultObjectProperties(result, "status");
 })
@@ -47,7 +47,7 @@ test("object with detail should return default title, default status, and its de
     const object = {
         detail: "Detail information"
     }
-    const result = getProblemDetails(object);
+    const result = new ProblemDetails(object);
     expect(result.detail).toBe(object.detail);
     expectProblemDetailsContainDefaultObjectProperties(result, "detail");
 })
@@ -56,7 +56,7 @@ test("object with traceId should return default title, default status, and its t
     const object = {
         traceId: "Trace id information"
     }
-    const result = getProblemDetails(object);
+    const result = new ProblemDetails(object);
     expect(result.traceId).toBe(object.traceId);
     expectProblemDetailsContainDefaultObjectProperties(result, "traceId");
 })
@@ -65,7 +65,7 @@ test("object with instance should return default title, default status, and its 
     const object = {
         instance: "Instance information"
     }
-    const result = getProblemDetails(object);
+    const result = new ProblemDetails(object);
     expect(result.instance).toBe(object.instance);
     expectProblemDetailsContainDefaultObjectProperties(result, "instance");
 })
@@ -81,7 +81,7 @@ test("object with errors should return default title, default status, and its er
             ]
         }
     }
-    const result = getProblemDetails(object);
+    const result = new ProblemDetails(object);
     expect(result.errors).toMatchObject(object.errors);
     expectProblemDetailsContainDefaultObjectProperties(result, "errors");
 })
